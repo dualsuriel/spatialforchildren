@@ -1,0 +1,131 @@
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+/*prompt*/
+.Qa, .Qb, .Qc, .Qd, .Qe, .Qf, .Qg, .Qh, .Qi, .Qj, .Qk, .Ql, .Qm, .Qn, .Qo, .Qp, .Qq, .Qr, .Qs, .Qt{
+	width: 800px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.Qu, .Qv, .Qw, .Qx, .Qy, .Qz, .Qaa, .Qbb, .Qcc, .Qdd, .Qee, .Qff, .Qgg, .Qhh, .Qii, .Qjj, .Qkk, .Qll, .Qmm, .Qnn, .Qoo, .Qpp, .Qqq, .Qrr, .QEnd {
+	width: 800px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+/*section of choices/5 pts scales */
+.Qa-A, .Qb-A, .Qc-A, .Qd-A, .Qe-A, .Qf-A, .Qg-A, .Qh-A, .Qi-A, .Qj-A, .Qk-A, .Ql-A, .Qm-A, .Qn-A, .Qo-A, .Qp-A, .Qq-A, .Qr-A, .Qs-A, .Qt-A, .QEnd-A {
+	width: 800px;
+	margin: 0px auto;
+}
+.Qu-A, .Qv-A, .Qw-A, .Qx-A, .Qy-A, .Qz-A, .Qaa-A, .Qbb-A, .Qcc-A, .Qdd-A, .Qee-A, .Qff-A, .Qgg-A, .Qhh-A, .Qii-A, .Qjj-A, .Qkk-A, .Qll-A, .Qmm-A, .Qnn-A, .Qoo-A, .Qpp-A, .Qqq-A, .Qrr-A {
+	width: 800px;
+	margin: 0px auto;
+}
+
+/*each choice in the section*/
+.Qa-div, .Qb-div, .Qc-div, .Qd-div, .Qe-div, .Qf-div, .Qg-div, .Qh-div, .Qi-div, .Qj-div, .Qk-div, .Ql-div, .Qm-div, .Qn-div, .Qo-div, .Qp-div, .Qq-div, .Qr-div, .Qs-div, .Qt-div{
+	outline: 1px solid gray;
+	height: 30px;
+	width: 130px;
+	/*border-radius: 5px;*/
+	margin-right:30px;
+	margin-bottom: 10px;
+	padding: 20px 0px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.Qu-div, .Qv-div, .Qw-div, .Qx-div, .Qy-div, .Qz-div, .Qaa-div, .Qbb-div, .Qcc-div, .Qdd-div, .Qee-div, .Qff-div, .Qgg-div, .Qhh-div, .Qii-div, .Qjj-div, .Qkk-div, .Qll-div, .Qmm-div, .Qnn-div, .Qoo-div, .Qpp-div, .Qqq-div, .Qrr-div{
+	width: 800px;
+	margin: 0px auto;
+	outline: 1px solid gray;
+	height: 30px;
+	width: 130px;
+	/*border-radius: 5px;*/
+	margin-right:30px;
+	margin-bottom: 10px;
+	padding: 20px 0px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.QEnd-div {
+	width: 800px;
+	margin: 0px auto;
+	outline: 1px solid gray;
+	height: 30px;
+	width: 130px;
+	margin-right:30px;
+	margin-bottom: 10px;
+	padding: 20px 0px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+p.clear {
+	clear: both;
+}
+
+.test-A-div:hover {
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.test-B-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.test-C-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+.test-F-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+div.Qa-div.selected, div.Qb-div.selected, div.Qc-div.selected, div.Qd-div.selected, div.Qe-div.selected, div.Qf-div.selected, div.Qg-div.selected, div.Qh-div.selected, div.Qi-div.selected, div.Qj-div.selected, div.Qk-div.selected, div.Ql-div.selected, div.Qm-div.selected, div.Qn-div.selected {
+	outline: 3px black solid;
+	/*border-radius: 5px;*/
+}
+div.Qo-div.selected, div.Qp-div.selected, div.Qq-div.selected, div.Qr-div.selected, div.Qs-div.selected, div.Qt-div.selected, div.Qu-div.selected, div.Qv-div.selected, div.Qw-div.selected, div.Qx-div.selected, div.Qy-div.selected, div.Qz-div.selected, div.Qaa-div.selected {
+outline: 3px black solid;
+}
+div.Qbb-div.selected, div.Qcc-div.selected, div.Qdd-div.selected, div.Qee-div.selected, div.Qff-div.selected, div.Qgg-div.selected, div.Qhh-div.selected, div.Qii-div.selected, div.Qjj-div.selected, div.Qkk-div.selected, div.Qll-div.selected, div.Qmm-div.selected, div.Qnn-div.selected{
+outline: 3px black solid;
+}
+div.Qoo-div.selected, div.Qpp-div.selected, div.Qqq-div.selected, div.Qrr-div.selected, div.QEnd-div.selected {
+outline: 3px black solid;
+}

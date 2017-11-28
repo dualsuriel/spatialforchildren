@@ -1,0 +1,135 @@
+/** {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}*/
+.banner {
+	width:100%;
+	height: 300px;
+	/*margin-left:100px;*/
+	margin-top: 20px;
+	padding-top: 200px;
+	right:0;
+	padding-left: 100px;
+	background: white;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, white, #4f4f4f);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f7ead7, #e0d0b8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#page1 {
+	width:100%;
+	margin-top: 50px;
+	right:0;
+	/*padding-left: 100px;*/
+	height: 270px;
+	margin—top:20px;
+	margin-bottom:40px;
+	background: #bcbcbc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #bcbcbc, #4f4f4f);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f7ead7, #e0d0b8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#workshop {
+	width:100%;
+	height: 550px;
+	margin—top:50px;
+	margin-bottom:40px;
+	background: #848484;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #848484, #4f4f4f);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f7ead7, #e0d0b8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#page3 {
+	color:#4f4f4f;
+	margin-top: 100px;
+	width:100%;
+	height: 200px;
+	background: #8e9eab;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #4a5259, #4f4f4f);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f7ead7, #e0d0b8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.container {
+	width:100%;
+	right:0;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	margin: 20px;
+
+}
+.row {
+	/*width:100%;*/
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+}
+
+/*.row {
+	width: 800px;
+	height: 500px;
+	align-content: center;
+}*/
+.weekicon {
+	width: 350px;
+	height: 122.5px;
+	margin: 20px;
+	border-radius: 9px;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.weekicon img{
+	width: 350px;
+	height: 122.5px;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	position: relative;
+	opacity: 1;
+}
+
+/*when mouse hover over the assessment and week icons */
+.weekicon img:hover {
+	/*opacity: 0.7;*/
+	/*-webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+	/*filter: blur(5px);*/*/
+	/*border-radius: 20px;*/
+	-webkit-box-shadow: 13px 10px 19px -2px rgba(0,0,0,1);
+	-moz-box-shadow: 13px 10px 19px -2px rgba(0,0,0,1);
+	box-shadow: 13px 10px 19px -2px rgba(0,0,0,0.);
+	}
+
+.disable {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+		pointer-events:none;
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+
+div.msg {
+	position: absolute;
+	top: -30px;
+	color: forestgreen;
+	left: 6px;
+}

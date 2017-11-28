@@ -1,0 +1,75 @@
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+.test-Q {
+	width: 800px;
+	height: 80px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+p.clear {
+	clear: both;
+}
+
+.test-A-div {
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin-right:50px;
+	/*height: 40px;*/
+	height: 20px;
+	padding: 20px 0px;
+	width: 125px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.test-A-div:hover {
+	cursor: pointer;
+	border: 2px gray solid;
+	border-radius: 10px;
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+div.test-A-div.selected {
+	border: 3px black solid;
+	border-radius: 10px;
+}
+
+div.test-A-div.correct {
+	outline: 3px forestgreen solid;
+}
+
+div.test-A-div.correct div.msg {
+	position: absolute;
+	top: 0px;
+	color: forestgreen;
+	left: 6px;
+}
+
+div.msg {
+	position: absolute;
+	top: -30px;
+	color: forestgreen;
+	left: 6px;
+}

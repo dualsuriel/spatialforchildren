@@ -1,0 +1,98 @@
+{% extends 'base.html'  %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/intro.css" %}" rel="stylesheet">
+<!-- smoothscroll -->
+<!-- <script src="{% static "js/jquery.js"%>"</script>
+<script src="{% static "js/jquery.smooth-scroll.js"%>"</script>
+<script src="{% static "js/jquery.ba-bbq.js"%>"</script> -->
+<!-- end -->
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="ss-form"> -->
+<div id= "banner" class="banner" style="color:#c6832b">
+		<h1 style="font-size: 30px">Welcome</h1>
+		<h2 style="padding-top: 30px">Your NetID: {{ uid }}</h2>
+		<p style="font:1.60rem">Please use Chrome or Safari to take the assessment. Be aware that <span style="text-decoration:underline">using Internet Explorer may cause technical issues</span>. </p>
+		<!-- <li>You have three attempts for the assessment. Only the latest attempt will be recorded.</li> -->
+		<!-- <li>Click below to start the Spatial Reasoning Assessment.</li> -->
+</div>
+
+
+<!-- workshop content -->
+<div id="workshop">
+	<div class="container" style="padding-top:100px">
+			<div class="row">
+				<div class="weekicon" style="background-color: white;">
+						<div class="weekicon-A-div">
+							  <a href="/test">
+			   					 <p style="margin: 50px;font-size:30px;">Spatial Reasoning Test</p>
+			  				 </a>
+						</div>
+				</div>
+			</div>
+	</div>
+</div>
+
+
+<div id="page3">
+		<div class="container" id="contact">
+			<p style="padding-top:40px">Helen Wauck: wauck2@illinois.edu </p>
+		</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+var selected = -1;
+var static_prefix = '{% get_static_prefix %}';
+var Q_id = 1;
+
+// $(document).ready(function() {
+//
+// 	$(document).on('click', 'a[href*="#"]', function() {
+// 		var slashedHash = '#/' + this.hash.slice(1);
+// 		if ( this.hash ) {
+//
+// 			if ( slashedHash === location.hash ) {
+// 				$.smoothScroll({scrollTarget: this.hash});
+// 			} else {
+// 				$.bbq.pushState(slashedHash);
+// 			}
+//
+// 			return false;
+// 		}
+// 	});
+//
+// 	$(window).bind('hashchange', function(event) {
+// 		var tgt = location.hash.replace(/^#\/?/,'');
+// 		if ( document.getElementById(tgt) ) {
+// 			$.smoothScroll({scrollTarget: '#' + tgt});
+// 		}
+// 	});
+//
+// 	$(window).trigger('hashchange');
+// });
+
+window.onload = function initialize_QID (Q_id){
+	selected = -1;
+	$("button.next-btn").prop('disabled', true);
+	$("div.weekicon-A-div img").each(function(i){
+		var img_name = "assets/intro_imgs/I" + (i+1) + ".png";
+		$(this).attr("src", "");
+		$(this).attr("src", static_prefix + img_name);
+	})
+
+}
+
+
+	</script>
+{% endblock %}

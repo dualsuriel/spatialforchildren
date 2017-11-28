@@ -1,0 +1,205 @@
+div.ss-form-container {
+	margin-top: 140px;
+	width: 1000px;
+	max-width: 1000px;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+p.clear {
+	clear: both;
+}
+
+table {
+		margin: 40px;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+/*part1*/
+.test-a-Q {
+	width: 800px;
+	height: 380px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.test-a-Q img {
+	height: 180 px;
+}
+
+.test-a-A {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.testa-A-div {
+	outline: 1px solid gray;
+	height: 40px;
+	padding: 20px 0px;
+	width: 125px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+div.testa-A-div.selected {
+	outline: 3px red solid;
+}
+
+div.testa-A-div.selected:before {
+	/*content: "Your Answer";*/
+	content: "First Attempt";
+	color: red;
+	position:relative;
+	top: -10px;
+}
+
+div.testa-A-div.correct {
+	outline: 3px black solid;
+}
+
+div.testa-A-div.correct:before {
+	content: "Correct Answer";
+	color: black;
+	position:relative;
+	top: -10px;
+}
+
+div.testa-A-div.sndattempt {
+	outline: 3px green solid;
+}
+
+div.testa-A-div.sndattempt {
+	content: "Second Attempt";
+	color: green;
+	position:relative;
+	top: -10px;
+}
+
+
+/*part2*/
+.test-b-Q {
+	width: 800px;
+	height: 300px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.img {
+	width: auto;
+	height: 200 px;
+	float: left;
+}
+
+.test-b-A {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.testb-A-div {
+	outline: 1px solid gray;
+	height: 40px;
+	padding: 20px 0px;
+	width: 125px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+div.testb-A-div.selected {
+	outline: 3px red solid;
+}
+
+div.testb-A-div.selected:before {
+	content: "Your Answer";
+	color: red;
+	position:relative;
+	top: -10px;
+}
+
+div.testb-A-div.correct {
+	outline: 3px black solid;
+}
+
+div.testb-A-div.correct:before {
+	content: "Correct Answer";
+	color: black;
+	position:relative;
+	top: -10px;
+}
+
+/*part3*/
+
+.test-c-Q {
+	width: 800px;
+	height: 320px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.test-c-A {
+	width: 1000px;
+}
+
+.testc-A-div {
+	padding-top: 20px;
+	height: 230px;
+	width: 200px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.testc-A-div img {
+    width: auto;
+	height: auto;
+}
+
+div.testc-A-div.selected {
+	outline: 3px red solid;
+}
+
+div.testc-A-div.selected:before {
+	content: "Your Answer";
+	color: red;
+	position:relative;
+	top: -10px;
+}
+
+div.testc-A-div.correct {
+	outline: 3px black solid;
+}
+
+div.testc-A-div.correct:before {
+	content: "Correct Answer";
+	color: black;
+	position:relative;
+	top: -10px;
+}
+
+
+.btn {
+	margin: 25px auto;
+	display: block;
+	width: 200px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}

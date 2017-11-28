@@ -1,0 +1,112 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/survey2.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper">
+		<h1 class="ss-form">Survey</h1>
+		<!-- gaming motivations, 44 questions -->
+		<div class="last">
+			<div class="QEnd">
+				<p>Have you ever reacted emotionally to a video game?</p>
+			</div>
+			<div class="QEnd-A">
+				<div class="QEnd-div">
+					<button onclick="window.location.href='/survey4'">Yes</div>
+				</div>
+				<div class="QEnd-div">
+					<button onclick="window.location.href='/testsummary'">No</div>
+				</div>
+			</div>
+		</div>
+
+
+		<p class="clear"></p>
+
+		<p class="clear"></p>
+		<button class="next-btn" onclick="window.location.href='/survey4'">Next</button>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+		<script type="text/javascript">
+		var answers = Array(1).fill('X');
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 20;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+		// window.onload = function() {
+		// 	if(wrong_count == 0) {
+		// 		document.getElementById('test-container-a').style.display = 'none';
+		// 		console.log("part1correct");
+		// 		}
+		// 	if (wrong_count2 == 0) {
+		// 		document.getElementById('test-container-b').style.display = 'none';
+		// 		console.log("part2correct");
+		// 		}
+		// 	if (wrong_count3 == 0) {
+		// 		document.getElementById('test-container-c').style.display = 'none';
+		// 		console.log("part3correct");
+		// 		}
+		// }
+
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			$("div.QEnd-div").click({Q_id: 1, divSet : "div.QEnd-div"},selection_recorder);
+
+
+			});
+
+			// answer no, redirect to testsummary
+			// answer yes, redirect to survey4
+		function clickNext(){
+			console.log(answers);
+			saveLog( "SURVEY3", answers, function(){
+						// document.location.href = '/survey4/';
+						})
+		};
+
+
+	// function text_recorder(field,Q_id) {
+	// 	answers[Q_id] = field.value;
+	// };
+
+	function selection_recorder(event){
+		Q_id = event.data.Q_id;
+		div = event.data.divSet;
+		cur_selected = $(this).index();
+		if(cur_selected != answers[Q_id]) {
+			$(div).eq(answers[Q_id]).removeClass("selected");
+			$(div).eq(cur_selected).addClass("selected");
+			answers[Q_id] = cur_selected;
+		}
+
+
+	};
+
+	// // Returns a random integer between min (included) and max (excluded)
+	// // Using Math.round() will give you a non-uniform distribution!
+	// function getRandomInt(min, max) {
+	// 	return Math.floor(Math.random() * (max - min)) + min;
+	// }
+
+	var questions = $(".question");
+	for(var i = 0; i < questions.length; i++){
+    var target = Math.floor(Math.random() * questions.length -1) + 1;
+    var target2 = Math.floor(Math.random() * questions.length -1) +1;
+    questions.eq(target).before(questions.eq(target2));
+}
+
+		</script>
+
+{% endblock %}

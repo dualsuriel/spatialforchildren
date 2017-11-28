@@ -1,0 +1,52 @@
+{% extends 'workshoptemplate.html'  %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/intro.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="ss-form">
+	<h1>Welcome</h1>
+	<p>Your NetID: {{ uid }}</p>
+
+	<p>Password for the Spatial Reasoning Workshop has been sent to you via email. If you do not receive the password, please contact us at spatial.reasoning.uiuc@gmail.com.</p>
+	<form class="passwordverify">
+		<fieldset>
+			<input type="password" id="psw" placeholder="password" required>
+    		<button type="submit" class="btn btn-primary" onclick="passwordVerify()">Submit</button>
+		</fieldset>
+	</form>
+
+	<!-- <div class="continue" id="btn" style="display: none"> -->
+		<button class="btn" id="btn" onclick="window.location.href='/spatialtest/workshopintro'" style="display:none">Start Workshop</button>
+	<!-- </div> -->
+	<div class="homepage">
+		<button class="btn" onclick="window.location.href='/spatialtest/intro'">Home Page</button>
+	</div>
+
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+		var static_prefix = '{% get_static_prefix %}';
+		var workshop_password = document.getElementById("psw");
+		var correct_password = "rotation"
+
+
+		function passwordVerify() {
+			if (workshop_password == correct_password {
+				console.log("verify");
+				document.getElementById('btn').style.display = 'block';
+			} else {
+			alert("Invalid Password")
+			}
+		}
+
+
+	</script>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/test2.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test2-wrapper">
+		<h1 class="ss-form">Time Left: <span id="timer">8:00</span>, Completed: <span id="completed">0</span>/24</h1>
+		<div class="test-Q">
+			<img class="img-Q1" src="">
+			<img class="img-Q2" src="{% static "assets/test2_imgs/answers.png" %}">
+		</div>
+		<div class="test-A">
+			<div class="test-A-div">
+				<div>A</div>
+			</div>
+			<div class="test-A-div">
+				<div>B</div>
+			</div>
+			<div class="test-A-div">
+				<div>C</div>
+			</div>
+			<div class="test-A-div">
+				<div>D</div>
+			</div>
+			<div class="test-A-div">
+				<div>E</div>
+			</div>
+			<div class="test-A-div">
+				<div>F</div>
+			</div>
+			<div class="test-A-div">
+				<div>G</div>
+			</div>
+		</div>
+		<p class="clear"></p>
+		<button class="next-btn">Next</button>
+		
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		var selected = -1;
+		var answers = Array(24).fill('X');
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 8;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+		function test_finished(){
+			saveLog( "ANSWER2", answers, function(){
+						document.location.href = '/spatialtest/thanku';
+						})
+		}
+
+		function updateTimer(){
+			var t = deadline - Date.parse(new Date());
+			if (t < 0) {
+				clearInterval(timerInterval);
+				// jump to next page
+				test_finished();
+			}
+
+			var seconds = ('0' + Math.floor( (t/1000) % 60 )).slice(-2);
+			var minutes = ('0' + Math.floor( (t/1000/60) % 60 )).slice(-2);
+			$("#timer").html(minutes + ":" + seconds);
+
+		}
+		updateTimer();
+		var timerInterval = setInterval(updateTimer, 200);
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			initialize_QID(1);
+			$("div.test-A-div").click(function(){
+				cur_selected = $(this).index();
+				if(cur_selected != selected) {
+					$("div.test-A-div").eq(selected).removeClass("selected");
+					$("div.test-A-div").eq(cur_selected).addClass("selected");
+					selected = cur_selected;
+				}
+				$("button.next-btn").prop('disabled', false);
+			})
+			});
+
+		function clickNext(){
+			// console.log("click");
+			answers[Q_id-1] = String.fromCharCode(65+selected);
+			saveLog("ANSWER", {"Q": Q_id, "A": answers[Q_id-1]}, function(){
+			if (Q_id == 24) {
+				// go to next page
+				test_finished();
+			}
+			else {
+				Q_id++;
+				$("#completed").html(Q_id-1);
+				initialize_QID(Q_id);
+				}
+				});
+		}
+
+		function initialize_QID (Q_id) {
+			selected = -1;
+			$("button.next-btn").prop('disabled', true);
+			$("div.test-Q img").each(function(i){
+				if( i != 0 ) { return }
+				//var img_name = "assets/test2_imgs/Q" + Q_id + "_Q" + (i+1) + ".png";
+				var img_name = "assets/test2_imgs/Q" + Q_id + "_Q" + ".png";
+				$(this).attr("src", ""); // reset img
+				$(this).attr("src", static_prefix + img_name);
+			})
+			$("div.test-A-div").removeClass("selected")
+		}
+
+		// Returns a random integer between min (included) and max (excluded)
+		// Using Math.round() will give you a non-uniform distribution!
+		function getRandomInt(min, max) {
+		  return Math.floor(Math.random() * (max - min)) + min;
+		}
+
+	</script>
+{% endblock %}

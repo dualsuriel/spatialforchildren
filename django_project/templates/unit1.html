@@ -1,0 +1,218 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; chrome=1;">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width">
+    <base target="_blank">
+    <title>Spatial Reasoning Test</title>
+    <link href="{% static "/css/formview_st_ltr.css"%}" type='text/css' rel='stylesheet'>
+    <link href="{% static "/css/mobile_formview_st_ltr.css"%}" type='text/css' rel='stylesheet' media='screen and (max-device-width: 721px)'>
+    <link href="{% static "/css/index.css"%}" type='text/css' rel='stylesheet'>
+    <link href="{% static "/css/countdown.css"%}" type="test/css" rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static "/css/pnotify.custom.min.css"%}">
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src=" {% static "/js/jquery.min.js"%}"></script>
+    <script type="text/javascript" src=" {% static "/js/jquery.cookie.js"%}"></script>
+    <script type="text/javascript" src=" {% static "/js/jquery.countdown.js"%}"></script>
+    <script type="text/javascript" src=" {% static "/js/pnotify.custom.min.js"%}"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".digits").countdown({
+image: " {% static "/assets/digits.png"%}",
+            format: 'mm:ss',
+            startTime: '{{time_format}}'
+        });
+    })
+    </script>
+    <script type="text/javascript">
+    window.history.forward();
+    </script>
+</head>
+<div id='holder'>
+    <div class="digits" style="display:none"></div>
+    <div class="timerBtn" style="text-align:center"><input type="button" name="submit" value="Show" id="timerBtn" class="jfk-button jfk-button-action"></div>
+</div>
+
+<body dir="ltr" class="ss-base-body" onload="Start()">
+    <div itemscope itemtype="http://schema.org/CreativeWork/FormObject">
+        <meta itemprop="name" content="Spatial Reasoning Test">
+        <div class="ss-form-container">
+            <div class="ss-top-of-page">
+                <div class="ss-form-heading">
+                    <h1 class="ss-form-title" dir="ltr">Spatial Reasoning Test</h1>
+                </div>
+            </div>
+            <div class="ss-form">
+                <form action="" method="POST" id="ss-form" target="_self" onsubmit="return validate_form(this);">
+                    {% csrf_token %}
+                    <ol role="list" class="ss-question-list" style="padding-left: 0">
+                        <div class="ss-form-question errorbox-good" role="listitem">
+                            <div dir="auto" class="ss-item  ss-radio">
+                                <div class="ss-form-entry">
+                                    <label class="ss-q-item-label" for="entry_168426374">
+                                        <div class="ss-q-title">Question {{number}}
+                                        </div>
+                                        <div class="ss-q-help ss-pic">
+                                            <img src={{question_pic_url}}>
+                                        </div>
+                                    </label>
+                                    <ul class="ss-choices" role="radiogroup" aria-label="Question 1 Pic here ">
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="unit1_ans" value="A" role="radio" class="ss-q-radio" aria-label="A"></span>
+                                                <span class="ss-choice-label">A</span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="unit1_ans" value="B" role="radio" class="ss-q-radio" aria-label="B"></span>
+                                                <span class="ss-choice-label">B</span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="unit1_ans" value="C"  role="radio" class="ss-q-radio" aria-label="C"></span>
+                                                <span class="ss-choice-label">C</span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="unit1_ans" value="D"  role="radio" class="ss-q-radio" aria-label="D"></span>
+                                                <span class="ss-choice-label">D</span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="unit1_ans" value="E" role="radio" class="ss-q-radio" aria-label="E"></span>
+                                                <span class="ss-choice-label">E</span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="hidden" name="duration_time" value="" role="radio" class="ss-q-timeduration" ></span>
+                                            </label>
+                                        </li>
+                                        <li class="ss-choice-item">
+                                            <label><span class="ss-choice-item-control goog-inline-block"><input type="hidden" name="time" value="" role="radio" class="ss-q-time" ></span>
+                                            </label>
+                                        </li>
+                                        <div class="error-message" id="168426374_errorMessage"></div>
+                                        <div class="required-message">This is a required question.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ss-item ss-navigate">
+                            <table id="navigation-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+                                            <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </ol>
+                </form>
+            </div>
+            <div class="ss-footer">
+                <div class="ss-attribution"></div>
+                <div class='ptext'>You have already finished {{ans}}</div>
+                <div class="lpb">
+                    <div id="lpt" {{process_width}}></div>
+                    <div id='rpt'>{{process}}</div>
+                </div>
+            </div>
+        </div>
+        <div id="docs-aria-speakable" class="docs-a11y-ariascreenreader-speakable docs-offscreen" aria-live="assertive" role="region" aria-atomic></div>
+    </div>
+    </div>
+
+    <!--timeout Operation-->
+    <form class='timeout_op' method="POST" target="_self" action=''>
+        {% csrf_token %}
+        <input type='hidden' name='time' value=0>
+    </form>
+</body>
+<script type="text/javascript">
+var b = $('#timerBtn');
+b.click(function(){
+    if (b.attr('value') == 'Show'){
+        b.attr('value', 'Hide');
+        $('.digits').show();
+        $.cookie('display', 'hide', {path:'/'});
+    }
+    else{
+        b.attr('value', 'Show');
+        $('.digits').hide();
+        $.cookie('display', 'show', {path:'/'});
+    }
+})
+</script>
+
+<script type="text/javascript">
+var time = {{time}}
+setInterval(update, 1000);
+
+function update() {
+    time -= 1;
+    $('.ss-q-time').attr('value', time);
+    if(time <= 0){
+        $('.timeout_op').submit();
+    }
+    $.cookie('time', time, {path:'/'});
+}
+</script>
+
+<script type="text/javascript">
+    var startTime;
+var endTime;
+
+function Start() {
+    startTime = new Date();
+    if($.cookie('display') == null){
+        $.cookie('display', 'hide', {path:'/'});
+    }
+    if($.cookie('display') == 'show'){
+        $('.digits').hide(); 
+        $('#timerBtn').attr('value', 'Show');
+    }
+    else{
+        $('.digits').show();
+        $('#timerBtn').attr('value', 'Hide');
+    }
+}
+
+function validate_form(thisform) {
+    var value = 5
+    for (var i = 0; i < 5; i++){
+        if(thisform.unit1_ans[i].checked){
+            value = i;
+        }
+    }
+    if (value == 5) {
+        stack_bar_top = {
+            "dir1": "down",
+            "dir2": "right",
+            "push": "top",
+            "spacing1": 150,
+            "spacing2": 150
+        };
+        $(function() {
+            new PNotify({
+                title: 'Required Question',
+                text: 'You have to choose one option',
+                delay: 5000,
+                opacity: 0.9,
+                addclass: "stack_bar_top", // This is one of the included default classes.
+                stack: stack_bar_top,
+            })
+        })
+        return false;
+    }
+    endTime = new Date();
+    var len = (endTime.getTime() - startTime.getTime()) / 1000;
+    $('.ss-q-timeduration').attr('value', len)
+    return true;
+}
+</script>
+
+</html>

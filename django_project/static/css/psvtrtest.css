@@ -1,0 +1,120 @@
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+	background-color: white;
+}
+div.ss-form {
+
+	background-color: white;
+	height:100%;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin-top: 140px;
+	margin-right: 10px auto;
+	margin-left: 10px auto;
+	margin-bottom: 10px auto;
+
+}
+
+.example-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+	margin-top: 10px;
+}
+
+.test-Q {
+	width: 600px;
+	height: 370px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.img-Q1, .img-Q2, .img-Q3 {
+	width: 180px;
+	float: left;
+}
+
+div.long-text {
+	width: 180px;
+	float: left;
+	line-height: 180px;
+	text-align: center;
+}
+
+div.short-text {
+	width: 180px;
+	float: left;
+	line-height: 180px;
+	text-align: center;
+}
+
+p.clear {
+	clear: both;
+}
+
+.test-A {
+	width: 1000px;
+}
+
+.test-A-div {
+	padding-top: 20px;
+	height: 190px;
+	width: 200px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.example-wrapper .test-A-div {
+	width: 190px;
+}
+
+.test-A-div:hover {
+	cursor: pointer;
+	outline: 1px gray solid;
+}
+
+.test-A-div img {
+	width: 180px;
+}
+
+.example-wrapper img {
+	width: 140px;
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+div.test-A-div.selected {
+	outline: 3px black solid;
+}
+
+div.test-A-div.correct {
+	outline: 3px solid forestgreen;
+}
+
+div.test-A-div.correct div.msg {
+	position: absolute;
+	top: 0px;
+	color: forestgreen;
+	left: 43px;
+}
+
+div.msg {
+	position: absolute;
+	top: -30px;
+	color: forestgreen;
+	left: 43px;
+}

@@ -1,0 +1,145 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/psvtrtest.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper" style="margin-top:130px; background-color:white;">
+		<h1 class="ss-form">Time Left: <span id="timer">20:00</span>, Completed: <span id="completed">0</span>/30</h1>
+		<div class="test-Q">
+			<img class="img-Q1" src="">
+			<div class="long-text">Is Rotated To</div>
+			<img class="img-Q2" src="">
+			<p class="clear"></p><hr>
+			<div class="short-text">As</div>
+			<img class="img-Q3" src="">
+			<div class="long-text">Is Rotated To</div>
+		</div>
+		<div class="test-A">
+			<div class="test-A-div">
+				<div>A</div>
+				<img src="">
+			</div>
+			<div class="test-A-div">
+				<div>B</div>
+				<img src="">
+			</div>
+			<div class="test-A-div">
+				<div>C</div>
+				<img src="">
+			</div>
+			<div class="test-A-div">
+				<div>D</div>
+				<img src="">
+			</div>
+			<div class="test-A-div">
+				<div>E</div>
+				<img src="">
+			</div>
+		</div>
+		<p class="clear"></p>
+		<button class="next-btn">Next</button>
+
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		var selected = -1;
+		var answers = Array(30).fill(-1);
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 20;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+		var attempt = {{psvtr_attempt}};
+
+		function test_finished(){
+			saveLog( "PSVTR_ANSWER", answers, function(){
+						document.location.href = '/spatialtest/psvtrsummary';
+						})
+			saveLog( "PSVTR_ATTEMPT", attempt+1, function(){
+						})
+		}
+
+
+		function updateTimer(){
+			var t = deadline - Date.parse(new Date());
+			if (t < 0) {
+				clearInterval(timerInterval);
+				// jump to next page
+				test_finished();
+			}
+
+			var seconds = ('0' + Math.floor( (t/1000) % 60 )).slice(-2);
+			var minutes = ('0' + Math.floor( (t/1000/60) % 60 )).slice(-2);
+			$("#timer").html(minutes + ":" + seconds);
+
+		}
+		updateTimer();
+		var timerInterval = setInterval(updateTimer, 200);
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			initialize_QID(1);
+			$("div.test-A-div").click(function(){
+				cur_selected = $(this).index();
+				if(cur_selected != selected) {
+					$("div.test-A-div").eq(selected).removeClass("selected");
+					$("div.test-A-div").eq(cur_selected).addClass("selected");
+					selected = cur_selected;
+				}
+				$("button.next-btn").prop('disabled', false);
+			})
+			});
+
+		function clickNext(){
+			// console.log("click");
+			answers[Q_id-1] = +$("div.test-A-div img").eq(selected).attr("num");
+			saveLog("ANSWER", {"Q": Q_id, "A": answers[Q_id-1]}, function(){
+			if (Q_id >= 30) {
+				// go to next page
+				test_finished();
+			}
+			else {
+				Q_id++;
+				$("#completed").html(Q_id-1);
+				initialize_QID(Q_id);
+				}
+				});
+		}
+
+		function initialize_QID (Q_id) {
+			selected = -1;
+			$("button.next-btn").prop('disabled', true);
+			var randomOrder = [1,2,3,4,5].sort(function() {
+				return .5 - Math.random();
+			});
+			$("div.test-Q img").each(function(i){
+				var img_name = "assets/psvtr_imgs/Q" + Q_id + "_Q" + (i+1) + ".png";
+				$(this).attr("src", ""); // reset img
+				$(this).attr("src", static_prefix + img_name);
+			})
+			$("div.test-A-div").each(function(i){
+				var img_name = "assets/psvtr_imgs/Q" + Q_id + "_A" + randomOrder[i] + ".png";
+				$("img", this).attr("src", ""); // reset img
+				$("img", this).attr("src", static_prefix + img_name)
+					.attr("num", randomOrder[i]);
+			});
+
+			$("div.test-A-div").removeClass("selected")
+		}
+
+		// Returns a random integer between min (included) and max (excluded)
+		// Using Math.round() will give you a non-uniform distribution!
+		function getRandomInt(min, max) {
+		  return Math.floor(Math.random() * (max - min)) + min;
+		}
+
+	</script>
+{% endblock %}

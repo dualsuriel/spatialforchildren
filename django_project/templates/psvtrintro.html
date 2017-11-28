@@ -1,0 +1,187 @@
+{% extends 'workshoptemplate.html'  %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/psvtrtest.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="example-wrapper">
+<div class="ss-form">
+	<h1>Directions</h1>
+	<p>This test consists of 30 questions designed to see how well you can visualize the rotation of three-dimensional objects.
+	Before you start the test, there will be two sample questions showing you the type of question included in the test. </p>
+	You will receive feedback on the correct answers. Please pay attention to the answers to make sure you understand the task.
+	<p><span style="color:black;font-weight:bold">You will be given 20 minutes to take the test. Please make sure that you have enough time to complete the test. Do not start the test until you are ready. </span>
+	Shown below is a sample question. </p>
+	You are to:
+	<ol>
+		<li>study how the object in the top line of the question is rotated;</li>
+		<li>picture in your mind what the object shown in the middle line of the question looks like when rotated in exactly the same manner;</li>
+		<li>select from among the five drawings (A, B, C, D, or E) given in the bottom line of the question the one that looks like the object rotated in the correct position.</li>
+	</ol>
+	<div class="test-Q">
+		<img class="img-Q1" src="">
+		<div class="long-text">Is Rotated To</div>
+		<img class="img-Q2" src="">
+		<p class="clear"></p><hr>
+		<div class="short-text">As</div>
+		<img class="img-Q3" src="">
+		<div class="long-text">Is Rotated To</div>
+	</div>
+	<div class="test-A">
+		<div class="test-A-div">
+			<div>A</div>
+			<img src="">
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>B</div>
+			<img src="">
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>C</div>
+			<img src="">
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>D</div>
+			<img src="">
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>E</div>
+			<img src="">
+			<div class="msg">Correct Answer</div>
+		</div>
+	</div>
+	<p class="clear"></p>
+	<button class="next-btn">Next</button>
+
+<!-- 	<div id="instruction1">
+		What is the correct answer to the example shown above?<br>
+		<b>Select one drawing and click "Next" to check the correct answer.</b><br>
+	</div> -->
+	<div id="instruction2" style="display: none">
+		<span id="result"></span><br><br>
+		Answers A, B, C, and E are wrong. Only drawing D looks like the object rotated according to the given rotation.
+		Remember that each question has only one correct answer.
+		<br><br>
+		Now click "OK" button and do the next example. Try to select the drawing that looks like the object in the correct position when the given rotation is applied.
+	</div>
+	<div id="instruction3" style="display: none">
+		<span id="result2"></span><br><br>
+		Notice that the given rotation in this example is more complex. The correct answer for this example is B.
+		<br><br>
+		In the actual test, you will answer 30 questions sequentially. Once you proceed to the next question, you cannot go back to change answers of previous questions. There will be a time limit as 20 mins for the total 30 questions. The test result will be provided at the end.<br>
+		<br>
+		<span style="color:black;font-weight:bold">Click "Next" when you are ready to begin.</span> <br><br>
+		<p>Please contact zxiao5@illinois.edu if you still have questions or concerns about the test.</p>
+		<button class="next-btn" onclick="prepare()">Next</button>
+	</div>
+</div>
+
+	<div class="begin-test" style="display: none; background-color: white; margin-top:120px">
+		You are about to begin the test. If you do not understand the task, please contact the teaching assistant before doing the test.
+		There are 30 questions in this test, and you will not receive feedback on whether your answers are correct or not. You have to finish the test in 20 minutes. If you run out of time, the test will automatically end.<br><br>
+		<span class="highlight"> Up to three attempts are allowed. Only the latest score will be recorded. Do NOT use browser back button or refresh button; otherwise, the test will be over.</span><br><br>
+		Click "Begin Test" to start. <br><br>
+		<div class="center">
+			<button class="btn" onclick="window.location.href='/spatialtest/psvtrtest'">Begin Test</button>
+		</div>
+	</div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		var selected = -1;
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var tutorial_step = 1;
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			initialize_QID(1);
+			$("div.test-A-div").click(function(){
+				cur_selected = $(this).index();
+				if(cur_selected != selected) {
+					$("div.test-A-div").eq(selected).removeClass("selected");
+					$("div.test-A-div").eq(cur_selected).addClass("selected");
+					selected = cur_selected;
+				}
+				$("button.next-btn").prop('disabled', false);
+			})
+		});
+
+function prepare(){
+	$(".ss-form").fadeOut("fast", function(){
+			$(".begin-test").fadeIn();
+			})
+}
+
+		function clickNext(){
+			// console.log("click");
+			if (tutorial_step == 1) {
+				var msg = "";
+				if(selected == 3) {
+					msg += "The answer is correct. ";
+				}
+				else {
+					msg += "The answer is wrong. ";
+				}
+				$("div.test-A-div").eq(3).addClass("correct");
+				$("#result").text(msg);
+				$(".next-btn").text("OK");
+				$("#instruction1").remove();
+				$("#instruction2").fadeIn();
+				tutorial_step = 2;
+				window.scrollTo(0,document.body.scrollHeight);
+			}
+			else if (tutorial_step == 2) {
+				Q_id = 2;
+				initialize_QID(Q_id);
+				$(".next-btn").text("Next");
+				$("#instruction2").remove();
+				tutorial_step = 3;
+			}
+			else if (tutorial_step == 3){
+				var msg = "";
+				if(selected == 1) {
+					msg += "The answer is correct. ";
+				}
+				else {
+					msg += "The answer is wrong. ";
+				}
+				$("div.test-A-div").eq(1).addClass("correct");
+				$("#result2").text(msg);
+				// $(".next-btn").prop('disabled', true);
+				$("#instruction3").fadeIn();
+				window.scrollTo(0,document.body.scrollHeight);
+			}
+		}
+
+		function initialize_QID (Q_id) {
+			selected = -1;
+			$("button.next-btn").prop('disabled', true);
+			$("div.test-Q img").each(function(i){
+				var img_name = "assets/psvtr_imgs/E" + Q_id + "_Q" + (i+1) + ".png";
+				$(this).attr("src", "");
+				$(this).attr("src", static_prefix + img_name);
+			})
+			$("div.test-A-div").each(function(i){
+				var img_name = "assets/psvtr_imgs/E" + Q_id + "_A" + (i+1) + ".png";
+				$("img", this).attr("src", "")
+				$("img", this).attr("src", static_prefix + img_name)
+				.attr("num", i);
+			});
+
+			$("div.test-A-div").removeClass("selected").removeClass("correct")
+		}
+		</script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+<div class="ss-form" style="display:block">
+	Congratulations!<br> 
+	You have finished the tests!<br>
+	Test1 score: {{ test1_correct }}/30<br>
+	Test2 score: {{ test2_correct }}/24<br>
+	<hr>
+</div>
+<!--
+<div class="ss-item ss-navigate">
+	<table id=navigation-table>
+		<tbody><tr>
+			<td class="ss-form-entry goog-inline-block" id=navigation-buttons dir=ltr>
+			<input type=button value=Finish id=ss-nextpage class="jfk-button jfk-button-action finish" onClick="windowClose()">
+	</table>
+</div>
+-->
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		var test1 = {{ test1_correct }};
+		var test2 = {{ test2_correct }};
+
+		function test_finished(){
+			saveLog( "TEST1", test1, function(){
+						})
+			saveLog( "TEST2", test2, function(){
+						})
+		}
+
+		$(test_finished())
+		
+	</script>
+{% endblock %}

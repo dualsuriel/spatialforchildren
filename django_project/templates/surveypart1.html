@@ -1,0 +1,121 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/workshop.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper">
+		<h1 class="ss-form">Survey</h1>
+		<!-- Q1 -->
+		<div class="test-Q">
+			<p>Have you ever played video games?</p>
+		</div>
+		<div class="test-A" style="margin-left:100px; margin-bottom:100px">
+			<div class="test-A-div">
+				<div>Yes</div>
+			</div>
+			<div class="test-A-div">
+				<div>No</div>
+			</div>
+		</div>
+		<!-- Q2 -->
+		<div class="test-Q">
+			<p>Have you played video games recently (in the past year)</p>
+		</div>
+		<div class="test-A" style="margin-left:100px; margin-bottom:100px">
+			<div class="test-A-div">
+				<div>Yes</div>
+			</div>
+			<div class="test-A-div">
+				<div>No</div>
+			</div>
+		</div>
+		<!-- Q3 -->
+		<div class="test-Q">
+			<p>How long have you been playing video games?</p>
+		</div>
+		<div class="test-A" style="margin-left:100px; margin-bottom:100px">
+			<div class="test-A-div">
+				<div>6 months or less</div>
+			</div>
+			<div class="test-A-div">
+				<div>1 year
+</div>
+			</div>
+		</div>
+
+
+		<p class="clear"></p>
+		<button class="next-btn">Next</button>
+
+	</div>
+{% endblock %}
+
+{% block javascript %}
+		<script type="text/javascript">
+		var selected = -1;
+		var answers = Array(1).fill('X');
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 20;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+		function test_finished(){
+			console.log(answers);
+			saveLog( "SURVEY1", answers, function(){
+						document.location.href = '/spatialtest/psvtrintro';
+						})
+		}
+
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			initialize_QID(1);
+			$("div.test-A-div").click(function(){
+				cur_selected = $(this).index();
+				if(cur_selected != selected) {
+					$("div.test-A-div").eq(selected).removeClass("selected");
+					$("div.test-A-div").eq(cur_selected).addClass("selected");
+					selected = cur_selected;
+				}
+				$("button.next-btn").prop('disabled', false);
+			})
+			});
+
+		function clickNext(){
+			// console.log("click");
+			answers[Q_id-1] = String.fromCharCode(65+selected);
+			saveLog("ANSWER", {"Q": Q_id, "A": answers[Q_id-1]}, function(){
+			if (Q_id == 1) {
+				// go to next page
+				test_finished();
+			}
+			else {
+				Q_id++;
+				$("#completed").html(Q_id-1);
+				initialize_QID(Q_id);
+				}
+				});
+		}
+
+		function initialize_QID (Q_id) {
+			selected = -1;
+			$("button.next-btn").prop('disabled', true);
+			$("div.test-Q img").each(function(i){
+			if ( i != 0 ) { return }
+			var img_name = "assets/week5p2b_imgs/Q" + Q_id + "_Q.png";
+			$(this).attr("src", "");
+			$(this).attr("src", static_prefix + img_name);
+			})
+
+			$("div.test-A-div").removeClass("selected").removeClass("correct");
+		}
+		</script>
+
+{% endblock %}

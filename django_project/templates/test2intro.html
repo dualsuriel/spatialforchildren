@@ -1,0 +1,182 @@
+{% extends 'base.html'  %}
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/test2.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="test2-wrapper">
+<div class="ss-form">
+	<h1>Directions</h1>
+	<p>This test consists of 24 questions designed to see how well you can tell which viewing position a picture of a three-dimensional object was taken from. 
+	Before you start the test, there will be two sample questions showing you the type of question included in the test. 
+	You will receive feedback on the correct answers. 
+	Please pay attention to the answers to make sure you understand the task.
+	Shown below is a sample question. 
+	</p>
+	The example shows an object HOVERING IN THE MIDDLE of a "glass box." Below it there is a picture of the same object from a new viewing position. You are to:
+	<ol>
+		<li>look at the picture of the object taken from the new viewing position;</li>
+		<li>imagine yourself moving around the "glass box" to find the corner from which this picture was taken</li>
+		<li>select that corner by the corresponding letter shown in the right figure.</li>
+	</ol>
+	Note: if you think that the picture was taken from the corner that is covered by the object, select the one in the middle of the cube ('G'), to indicate the corner that is behind the object.
+	<br><br><br>
+	<div class="test-Q">
+		<img class="img-Q1" src="">
+		<img class="img-Q2" src="{% static "assets/test2_imgs/answers.png" %}">
+	</div>
+	<div class="test-A">
+		<div class="test-A-div">
+			<div>A</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>B</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>C</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>D</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>E</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>F</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+		<div class="test-A-div">
+			<div>G</div>
+			<div class="msg">Correct Answer</div>
+		</div>
+	</div>
+	<br><br><br>
+	<button class="next-btn">Next</button>
+
+	<div id="instruction1">
+		What is the correct answer to the example shown above?<br>
+		<b>Select one letter and click "Next" to check the correct answer.</b><br>
+	</div>
+	<div id="instruction2" style="display: none">
+		<span id="result"></span><br><br>
+		The correct answer is the upper right corner ('B'). 
+		Only from there you would have the view that is depicted. Remember that each question has only one correct answer.
+		<br><br>
+		Now click "OK" button and do the next example. Try to select the corner of the "glass box" from which the picture was taken.
+		Remember that the object is located in the middle of the "glass box" and you are imagining yourself looking from different corners at the object.
+	</div>
+	<div id="instruction3" style="display: none">
+		<span id="result2"></span><br><br>
+		The correct answer is the lower right corner.
+		<br><br>
+		In the actual test, you will answer 24 questions sequentially. Once you proceed to the next question, you cannot go back to change answers of previous questions. You will have 8 minutes to attempt as many items as possible. The test result will be provided at the end.<br>
+		<br>
+		Click "Next" when you are ready. <br><br>
+		<button class="btn" onclick="prepare()">Next</button>
+	</div>
+	<br><br>
+</div>
+<div class="begin-test" style="display: none">
+	You are about to begin the test. If you do not understand the task, please contact the teaching assistant before doing the test. 
+	There are 24 questions in this test, and you will not receive feedback on whether your answers are correct or not. You have to finish the test in 8 minutes. If you run out of time, the test will automatically end.<br><br>
+	<span class="highlight"> You can only take the test ONCE. Do NOT use browser back button or refresh button; otherwise, the test will be over.</span><br><br>
+	Click "Begin Test" to start. <br><br>
+	<div class="center">
+		<button class="btn" onclick="window.location.href='/spatialtest/test2'">Begin Test</button>
+	</div>
+</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+	var selected = -1;
+	var static_prefix = '{% get_static_prefix %}';
+	var Q_id = 1;
+	var tutorial_step = 1;
+	// init
+	$(function(){
+			$("button.next-btn").click( clickNext );
+			initialize_QID(1);
+			$("div.test-A-div").click(function(){
+				cur_selected = $(this).index();
+				if(cur_selected != selected) {
+				$("div.test-A-div").eq(selected).removeClass("selected");
+				$("div.test-A-div").eq(cur_selected).addClass("selected");
+				selected = cur_selected;
+				}
+				$("button.next-btn").prop('disabled', false);
+				})
+			});
+
+function prepare(){
+	$(".ss-form").fadeOut("fast", function(){
+			$(".begin-test").fadeIn();
+			})
+}
+
+function clickNext(){
+	// console.log("click");
+	if (tutorial_step == 1) {
+		var msg = "";
+		if(selected == 1) {
+			msg += "The answer is correct. ";
+		}
+		else {
+			msg += "The answer is wrong. ";
+		}
+		$("div.test-A-div").eq(1).addClass("correct");
+		$("#result").text(msg);
+		$(".next-btn").text("OK");
+		$("#instruction1").remove();
+		$("#instruction2").fadeIn();
+		tutorial_step = 2;
+		window.scrollTo(0,document.body.scrollHeight);
+	}
+	else if (tutorial_step == 2) {
+		Q_id = 2;
+		initialize_QID(Q_id);
+		$(".next-btn").text("Next");
+		$("#instruction2").remove();
+		tutorial_step = 3;
+	}
+	else if (tutorial_step == 3){
+		var msg = "";
+		if(selected == 2) {
+			msg += "The answer is correct. ";
+		}
+		else {
+			msg += "The answer is wrong. ";
+		}
+		$("div.test-A-div").eq(2).addClass("correct");
+		$("#result2").text(msg);
+		$(".next-btn").prop('disabled', true);
+		$("#instruction3").fadeIn();
+		window.scrollTo(0,document.body.scrollHeight);
+	}
+}
+
+function initialize_QID (Q_id) {
+	selected = -1;
+	$("button.next-btn").prop('disabled', true);
+	$("div.test-Q img").each(function(i){
+		if ( i != 0 ) { return }
+		var img_name = "assets/test2_imgs/E" + Q_id + "_Q.png";
+		$(this).attr("src", "");
+		$(this).attr("src", static_prefix + img_name);
+	})
+
+	$("div.test-A-div").removeClass("selected").removeClass("correct");
+}
+
+
+</script>
+{% endblock %}

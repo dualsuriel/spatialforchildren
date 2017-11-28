@@ -1,0 +1,46 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/gradebook.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper">
+		<h1 class="ss-form">Gradebook</h1>
+		<div id="test-container-a" class="test-container-a">
+		</div>
+		<p class="clear"></p>
+		<table>
+		  <tr>
+		    <th>Assessment</th>
+		    <th>Score</th>
+		  </tr>
+		  <tr>
+		    <td>Initial Assessment</td>
+		    <td>{{ mrttestscore }}/24</td>
+		  </tr>
+
+		<p class="clear"></p>
+		<div class="center">
+			<button class="next-btn" onclick="window.location.href='/intro'">Back to Home Page</button>
+		</div>
+
+		</body>
+		</html>
+
+	</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+	var mrttestscore = '{{ mrttestscore }}';
+
+	//converted the value to a string by adding ''
+	console.log(week2score)
+
+
+</script>
+{% endblock %}

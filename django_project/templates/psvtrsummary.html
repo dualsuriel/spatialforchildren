@@ -1,0 +1,21 @@
+{% extends 'workshoptemplate.html'  %}
+
+{% block content %}
+<div class="ss-form" style="display:block; margin-top: 120px; background-color:white">
+	Good Job!<br>
+	You have finished the Spatial Reasoning Assessment!<br>
+	Test score: {{ psvtr_score }}/30<br>
+	Highest score: {{ highest_score }}/30<br>
+	Note: Only highest score is recorded.
+	<hr>
+	<br><br>
+</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		var psvtr_score = {{ psvtr_score }};
+		var highest_score = {{highest_score}};
+
+	</script>
+{% endblock %}

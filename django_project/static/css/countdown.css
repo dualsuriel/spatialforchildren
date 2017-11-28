@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+#holder {
+    margin: 40px 50px;
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    top: 0;
+}
+
+.cntSeparator {
+    display: block;
+    color: #fff;
+    font-size: 64px;
+    font-weight: 800;
+    text-align: center;
+    width: 40px;
+}

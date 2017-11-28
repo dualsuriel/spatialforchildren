@@ -1,0 +1,93 @@
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+
+.test-Q {
+	width: 800px;
+	height: 340px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.test-Q img {
+    width: 200px;
+}
+
+
+p.clear {
+	clear: both;
+}
+
+.test-A {
+	width: 1000px;
+}
+
+.test-A-div {
+	padding-top: 20px;
+	height: 230px;
+	width: 220px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.test-A-div img {
+    width: 200px;
+		max-height: 190px;
+}
+
+
+.example-wrapper .test-A-div {
+	width: 190px;
+}
+
+.test-A-div:hover {
+	cursor: pointer;
+	outline: 1px gray solid;
+}
+
+
+.example-wrapper img {
+	width: 140px;
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+div.test-A-div.selected {
+	outline: 3px black solid;
+}
+
+div.test-A-div.correct {
+	outline: 3px solid forestgreen;
+}
+
+div.test-A-div.correct div.msg {
+	position: absolute;
+	top: 0px;
+	color: forestgreen;
+	left: 43px;
+}
+
+div.msg {
+	position: absolute;
+	top: -30px;
+	color: forestgreen;
+	left: 43px;
+}

@@ -1,0 +1,731 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/survey2.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper">
+		<h1 class="ss-form">Survey</h1>
+		<!-- Emotional Experiences in Games Questionnaire -->
+		<div class="prompt" style="margin-left: 100px;">
+			<p>I reacted emotionally to a video game...<p>
+		</div>
+		<div class="question">
+			<div class="Qa">
+				<p>because it encourages me to focus on things that are important to me</p>
+			</div>
+			<div class="Qa-A">
+				<div class="Qa-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qa-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qa-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qa-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qa-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qb">
+				<p>because it inspires me to think about meaningful issues.</p>
+			</div>
+			<div class="Qb-A">
+				<div class="Qb-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qb-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qb-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qb-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qb-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qc">
+				<p>because it inspires new insights. </p>
+			</div>
+			<div class="Qc-A">
+				<div class="Qc-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qc-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qc-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qc-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qc-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+		<div class="question">
+				<div class="Qd">
+					<p>because it makes me think about myself.</p>
+				</div>
+				<div class="Qd-A">
+					<div class="Qd-div">
+						<div>1 <br> Strongly Agree</div>
+					</div>
+					<div class="Qd-div">
+						<div>2 <br> Agree</div>
+					</div>
+					<div class="Qd-div">
+						<div>3 <br> Neither</div>
+					</div>
+					<div class="Qd-div">
+						<div>4 <br> Disagree</div>
+					</div>
+					<div class="Qd-div">
+						<div>5 <br> Strongly Disagree</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qe">
+				<p>because it makes me laugh. </p>
+			</div>
+			<div class="Qe-A">
+				<div class="Qe-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qe-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qe-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qe-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qe-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qf">
+				<p>because it puts me in a good mood.</p>
+			</div>
+			<div class="Qf-A">
+				<div class="Qf-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qf-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qf-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qf-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qf-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qg">
+				<p>because it amuses me. </p>
+			</div>
+			<div class="Qg-A">
+				<div class="Qg-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qg-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qg-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qg-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qg-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qh">
+				<p>because it is funny.</p>
+			</div>
+			<div class="Qh-A">
+				<div class="Qh-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qh-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qh-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qh-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qh-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qi">
+				<p>because I like the adrenaline I get from it.</p>
+			</div>
+			<div class="Qi-A">
+				<div class="Qi-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qi-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qi-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qi-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qi-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qj">
+				<p>because I enjoy the thrill of it.</p>
+			</div>
+			<div class="Qj-A">
+				<div class="Qj-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qj-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qj-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qj-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qj-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qk">
+				<p>because I enjoy the excitement of it.</p>
+			</div>
+			<div class="Qk-A">
+				<div class="Qk-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qk-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qk-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qk-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qk-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Ql">
+				<p>because I like the tension associated with it.</p>
+			</div>
+			<div class="Ql-A">
+				<div class="Ql-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Ql-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Ql-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Ql-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Ql-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qm">
+				<p>because I like to feel with characters.</p>
+			</div>
+			<div class="Qm-A">
+				<div class="Qm-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qm-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qm-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qm-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qm-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qn">
+				<p>because I like to slip into the role of characters.</p>
+			</div>
+			<div class="Qn-A">
+				<div class="Qn-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qn-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qn-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qn-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qn-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qo">
+				<p>because I identify with the characters’ outlook on life.</p>
+			</div>
+			<div class="Qo-A">
+				<div class="Qo-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qo-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qo-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qo-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qo-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qp">
+				<p>because I like to live through and share the characters’ experiences.</p>
+			</div>
+			<div class="Qp-A">
+				<div class="Qp-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qp-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qp-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qp-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qp-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qq">
+				<p>because it allows me to experience feelings that I cannot act on in everyday life.</p>
+			</div>
+			<div class="Qq-A">
+				<div class="Qq-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qq-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qq-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qq-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qq-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qr">
+				<p>because it allows me to experience emotions that I avoid in everyday life.</p>
+			</div>
+			<div class="Qr-A">
+				<div class="Qr-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qr-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qr-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qr-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qr-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qs">
+				<p>because I can experience feelings that are difficult for me to allow in everyday life.</p>
+			</div>
+			<div class="Qs-A">
+				<div class="Qs-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qs-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qs-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qs-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qs-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qt">
+				<p>because it allows me to experience feelings that I normally have to hide in everyday life.</p>
+			</div>
+			<div class="Qt-A">
+				<div class="Qt-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qt-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qt-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qt-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qt-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qu">
+				<p>because I like being moved to tears.</p>
+			</div>
+			<div class="Qu-A">
+				<div class="Qu-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qu-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qu-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qu-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qu-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qv">
+				<p>because I like to have a good cry.</p>
+			</div>
+			<div class="Qv-A">
+				<div class="Qv-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qv-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qv-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qv-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qv-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qw">
+				<p>because I like moments of sadness and poignancy.</p>
+			</div>
+			<div class="Qw-A">
+				<div class="Qw-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qw-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qw-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qw-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qw-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qx">
+				<p>because I like to be overwhelmed with emotion.</p>
+			</div>
+			<div class="Qx-A">
+				<div class="Qx-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qx-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qx-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qx-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qx-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qy">
+				<p>because it inspires me to talk about the game with others.</p>
+			</div>
+			<div class="Qy-A">
+				<div class="Qy-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qy-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qy-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qy-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qy-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qz">
+				<p>because it stimulates the exchange of comments while playing the game.</p>
+			</div>
+			<div class="Qz-A">
+				<div class="Qz-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qz-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qz-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qz-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qz-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qaa">
+				<p>because it encourages me to discuss issues with others.</p>
+			</div>
+			<div class="Qaa-A">
+				<div class="Qaa-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qaa-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qaa-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qaa-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qaa-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+		<div class="question">
+			<div class="Qbb">
+				<p>because it makes me curious to find out how others experienced the game.</p>
+			</div>
+			<div class="Qbb-A">
+				<div class="Qbb-div">
+					<div>1 <br> Strongly Agree</div>
+				</div>
+				<div class="Qbb-div">
+					<div>2 <br> Agree</div>
+				</div>
+				<div class="Qbb-div">
+					<div>3 <br> Neither</div>
+				</div>
+				<div class="Qbb-div">
+					<div>4 <br> Disagree</div>
+				</div>
+				<div class="Qbb-div">
+					<div>5 <br> Strongly Disagree</div>
+				</div>
+			</div>
+		</div>
+
+		<p class="clear"></p>
+
+		<p class="clear"></p>
+		<button class="next-btn">Next</button>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+		<script type="text/javascript">
+		var answers = Array(1).fill('X');
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 20;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+		var survey3={{survey3answers}}
+		console.log(survey3)
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			$("div.Qa-div").click({Q_id: 0, divSet : "div.Qa-div"},selection_recorder);
+			$("div.Qb-div").click({Q_id: 1, divSet : "div.Qb-div"},selection_recorder);
+			$("div.Qc-div").click({Q_id: 2, divSet : "div.Qc-div"},selection_recorder);
+			$("div.Qd-div").click({Q_id: 3, divSet : "div.Qd-div"},selection_recorder);
+			$("div.Qe-div").click({Q_id: 4, divSet : "div.Qe-div"},selection_recorder);
+			$("div.Qf-div").click({Q_id: 5, divSet : "div.Qf-div"},selection_recorder);
+			$("div.Qg-div").click({Q_id: 6, divSet : "div.Qg-div"},selection_recorder);
+			$("div.Qh-div").click({Q_id: 7, divSet : "div.Qh-div"},selection_recorder);
+			$("div.Qi-div").click({Q_id: 8, divSet : "div.Qi-div"},selection_recorder);
+			$("div.Qj-div").click({Q_id: 9, divSet : "div.Qj-div"},selection_recorder);
+			$("div.Qk-div").click({Q_id: 10, divSet : "div.Qk-div"},selection_recorder);
+			$("div.Ql-div").click({Q_id: 11, divSet : "div.Ql-div"},selection_recorder);
+			$("div.Qm-div").click({Q_id: 12, divSet : "div.Qm-div"},selection_recorder);
+			$("div.Qn-div").click({Q_id: 13, divSet : "div.Qn-div"},selection_recorder);
+			$("div.Qo-div").click({Q_id: 14, divSet : "div.Qo-div"},selection_recorder);
+			$("div.Qp-div").click({Q_id: 15, divSet : "div.Qp-div"},selection_recorder);
+			$("div.Qq-div").click({Q_id: 16, divSet : "div.Qq-div"},selection_recorder);
+			$("div.Qr-div").click({Q_id: 17, divSet : "div.Qr-div"},selection_recorder);
+			$("div.Qs-div").click({Q_id: 18, divSet : "div.Qs-div"},selection_recorder);
+			$("div.Qt-div").click({Q_id: 19, divSet : "div.Qt-div"},selection_recorder);
+			$("div.Qu-div").click({Q_id: 20, divSet : "div.Qu-div"},selection_recorder);
+			$("div.Qv-div").click({Q_id: 21, divSet : "div.Qv-div"},selection_recorder);
+			$("div.Qw-div").click({Q_id: 22, divSet : "div.Qw-div"},selection_recorder);
+			$("div.Qx-div").click({Q_id: 23, divSet : "div.Qx-div"},selection_recorder);
+			$("div.Qy-div").click({Q_id: 24, divSet : "div.Qy-div"},selection_recorder);
+			$("div.Qz-div").click({Q_id: 25, divSet : "div.Qz-div"},selection_recorder);
+			$("div.Qaa-div").click({Q_id: 26, divSet : "div.Qaa-div"},selection_recorder);
+			$("div.Qbb-div").click({Q_id: 27, divSet : "div.Qbb-div"},selection_recorder);
+
+
+			});
+
+
+		function clickNext(){
+			// console.log("click");
+			console.log(answers);
+			saveLog( "SURVEY4", answers, function(){
+						//document.location.href = '/survey2';
+						})
+		};
+
+	// function text_recorder(field,Q_id) {
+	// 	answers[Q_id] = field.value;
+	// };
+
+	function selection_recorder(event){
+		Q_id = event.data.Q_id;
+		div = event.data.divSet;
+		cur_selected = $(this).index();
+		if(cur_selected != answers[Q_id]) {
+			$(div).eq(answers[Q_id]).removeClass("selected");
+			$(div).eq(cur_selected).addClass("selected");
+			answers[Q_id] = cur_selected;
+		}
+
+
+	};
+
+	// // Returns a random integer between min (included) and max (excluded)
+	// // Using Math.round() will give you a non-uniform distribution!
+	// function getRandomInt(min, max) {
+	// 	return Math.floor(Math.random() * (max - min)) + min;
+	// }
+
+	var questions = $(".question");
+	for(var i = 0; i < questions.length; i++){
+    var target = Math.floor(Math.random() * questions.length -1) + 1;
+    var target2 = Math.floor(Math.random() * questions.length -1) +1;
+    questions.eq(target).before(questions.eq(target2));
+}
+
+		</script>
+
+{% endblock %}

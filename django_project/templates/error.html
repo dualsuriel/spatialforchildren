@@ -1,0 +1,38 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+<div class="ss-form">
+	<div style="display: none" id="psvtrtaken">
+		<p> You have taken the test. Please contact spatial.reasoning.uiuc@gmail.com if you have questions regarding the test. <br><br>
+			<!-- <button class="btn" onclick="window.location.href='/spatialtest/test2intro'">Test 2</button> -->
+		</p>
+	</div>
+	<div style="display: none" id="test2taken">
+		<p> You have taken the tests. Please click the button to continue.<br><br>
+			<button class="btn" onclick="window.location.href='/spatialtest/thanku'">Next</button>
+		</p>
+	</div>
+	<div style="display: none" id="posttesttaken">
+		<p> You have taken the test. Please contact spatial.reasoning.uiuc@gmail.com if you have any questions. <br><br>
+			<button class="btn" onclick="window.location.href='/spatialtest/intro'">Home Page</button>
+		</p>
+	</div>
+	<div style="display: none" id="exercisetaken">
+		<p> You have taken completed the exercises. Please click the button to continue.<br><br>
+			<button class="btn" onclick="window.location.href='/spatialtest/intro'">Next</button>
+		</p>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+	var error = "{{ error }}";
+	$(function(){
+		$("#" + error).show();
+			});
+
+
+</script>
+
+{% endblock %}

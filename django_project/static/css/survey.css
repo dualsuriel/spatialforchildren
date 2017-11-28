@@ -1,0 +1,109 @@
+div.ss-form-container {
+	width: 1000px;
+	max-width: 1000px;
+}
+
+.test-wrapper {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+.test-A-div, .test-B-div, .test-C-div, .test-F-div{
+	outline: 1px solid gray;
+	min-height: 20px;
+	max-height: 400px;
+	/*border-radius: 5px;*/
+	margin-right:30px;
+	margin-bottom: 10px;
+	padding: 20px 0px;
+	min-width: 130px;
+	max-width: 800px;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+}
+
+.test-QA, .test-QB, .test-QC, .test-QD, .test-QE, .test-QF, .test-QG, .test-QH  {
+	width: 800px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.test-A, .test-B, .test-C, .test-D, .test-E, .test-F, .test-G, .test-H{
+	width: 800px;
+	margin: 0 auto;
+}
+
+p.clear {
+	clear: both;
+}
+
+.test-A-div:hover {
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.test-B-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.test-C-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+.test-F-div:hover{
+	cursor: pointer;
+	outline: 2px gray solid;
+	/*border-radius: 5px;*/
+}
+
+.next-btn {
+	margin: 25px auto;
+	display: block;
+	width: 100px;
+	height: 30px;
+}
+
+.next-btn:hover {
+	cursor: pointer;
+}
+
+div.test-A-div.selected {
+	outline: 3px black solid;
+	/*border-radius: 5px;*/
+}
+
+div.test-B-div.selected {
+	outline: 3px black solid;
+	/*border-radius: 5px;*/
+}
+
+div.test-C-div.selected {
+	outline: 3px black solid;
+	/*border-radius: 5px;*/
+}
+
+div.test-F-div.selected {
+	outline: 3px black solid;
+	/*border-radius: 5px;*/
+}
+
+div.test-A-div.correct div.msg {
+	position: absolute;
+	top: 0px;
+	color: forestgreen;
+	left: 6px;
+}
+
+div.msg {
+	position: absolute;
+	top: -30px;
+	color: forestgreen;
+	left: 6px;
+}
