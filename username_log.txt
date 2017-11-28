@@ -1,0 +1,6 @@
+GridSQUARE 1
+SolidLine: "17, 13, 24, 13" 
+DashedLine: 
+########### History List ############
+##HistoryItem## Type: LineAdd, SolidLine: (17,13:24,13), Time: 08/30/2017 15:05:52
+##HistoryItem## Type: ProjSave, Line: (0,0:0,0), Time: 08/30/2017 15:05:53
