@@ -4,7 +4,14 @@ SIIP Project
 
 A scalable online platform for Evaluation and Training Visuospatial Skills
 
-## Getting Started
+## Surveys!!
+Survey: game habits;
+Survey2: gaming motivations, 44 questions
+Survey3: question that redirects to two different pages 
+Survey4: Emotional Experiences in Games Questionnaire
+Survey5: Age, gender, ethnicity
+
+## Deploy on Local Host
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
