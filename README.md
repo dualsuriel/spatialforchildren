@@ -3,13 +3,17 @@ SIIP Project
 # Project Title
 
 A scalable online platform for Evaluation and Training Visuospatial Skills
-
-## Surveys!!
+## Path to Templates of Surveys
+django_project > templates
+## Surveys
 Survey: game habits;
-Survey2: gaming motivations, 44 questions
-Survey3: question that redirects to two different pages 
-Survey4: Emotional Experiences in Games Questionnaire
+Survey2: gaming motivations, 44 questions;
+Survey3: question that redirects to two different pages (choose yes to continute to survey4,choose no to the end of the survey);
+Survey4: Emotional Experiences in Games Questionnaire;
 Survey5: Age, gender, ethnicity
+
+## Unfinished tasks checklist:
+survey3 redirect,test answer log in database, intropage and nav bar, result page(summary)
 
 ## Deploy on Local Host
 
