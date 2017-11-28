@@ -21,6 +21,7 @@ class UserData(models.Model):
 	survey2answers = models.TextField()
 	survey3answers = models.TextField()
 	survey4answers = models.TextField()
+	survey5answers = models.TextField()
 
 # test(MRT) Data
 	mrt_start = models.DateTimeField(null=True)

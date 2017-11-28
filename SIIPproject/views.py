@@ -211,6 +211,15 @@ class Survey4View(View):
 		# if psvtr_attempt == '3':
 		# 	return render(request, "error.html", {"error": "psvtrtaken"})
 
+class Survey5View(View):
+	template_name = "survey5.html"
+
+	def get(self, request, *args, **kwargs):
+		if not request.user.is_authenticated():
+			return HttpResponseRedirect(reverse('login'))
+		uid = request.user.username
+		return render(request, self.template_name, {'uid': request.user.username})
+
 class TestsummaryView(View):
 	template_name = "survey3.html"
 

@@ -1,0 +1,120 @@
+{% extends 'workshoptemplate.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block head %}
+<link href="{% static "css/survey.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="test-wrapper">
+		<h1 class="ss-form">Survey</h1>
+		<!-- gender,age,ethnicity -->
+		<div class="test-QA">
+			<p>What is your age? </p>
+			<input type="text" onkeyup="text_recorder(this,0);">
+		</div>
+		<div class="test-QB">
+			<p>What is your gender?</p>
+		</div>
+		<div class="test-A">
+			<div class="test-B-div">
+				<div>Male</div>
+			</div>
+			<div class="test-B-div">
+				<div>Female</div>
+			</div>
+			<div class="test-B-div">
+				<div>Other, please specify: <input type="text" onkeyup="text_recorder(this,1);"> </div>
+			</div>
+		</div>
+
+		<div class="test-QC">
+			<p>Choose one or more races that you identify with:</p>
+		</div>
+		<div class="test-C">
+			<div class="test-C-div">
+				<div>White</div>
+			</div>
+			<div class="test-C-div">
+				<div>Native Hawaiian or Pacific Islander</div>
+			</div>
+			<div class="test-C-div">
+				<div>Black or African American</div>
+			</div>
+			<div class="test-C-div">
+				<div>Spanish, Hispanic, Latino</div>
+			</div>
+			<div class="test-C-div">
+				<div>Asian</div>
+			</div>
+			<div class="test-C-div">
+				<div>American Indian or Alaska Native	</div>
+			</div>
+			<div class="test-C-div">
+				<div>Other, please specify: <input type="text" onkeyup="text_recorder(this,2);"> </div>
+			</div>
+
+		<p class="clear"></p>
+		<button class="next-btn">Next</button>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+		<script type="text/javascript">
+		var answers = Array(1).fill('X');
+		var static_prefix = '{% get_static_prefix %}';
+		var Q_id = 1;
+		var timeInMinutes = 20;
+		var currentTime = Date.parse(new Date());
+		var deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+
+
+		// init
+		$(function(){
+			$("button.next-btn").click( clickNext );
+			$("div.test-A-div").click({Q_id: 0, divSet : "div.test-A-div"},selection_recorder);
+			$("div.test-B-div").click({Q_id: 1, divSet : "div.test-B-div"},selection_recorder);
+			$("div.test-C-div").click({Q_id: 2, divSet : "div.test-C-div"},selection_recorder);
+
+
+			});
+
+
+		function clickNext(){
+			// console.log("click");
+			console.log(answers);
+			saveLog( "SURVEY1", answers, function(){
+						//document.location.href = '/survey2';
+						})
+		};
+
+	function text_recorder(field,Q_id) {
+		answers[Q_id] = field.value;
+	};
+
+	function selection_recorder(event){
+		Q_id = event.data.Q_id;
+		div = event.data.divSet;
+		cur_selected = $(this).index();
+		if(cur_selected != answers[Q_id]) {
+			$(div).eq(answers[Q_id]).removeClass("selected");
+			$(div).eq(cur_selected).addClass("selected");
+			answers[Q_id] = cur_selected;
+		}
+
+
+	};
+
+	// Returns a random integer between min (included) and max (excluded)
+	// Using Math.round() will give you a non-uniform distribution!
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
+
+		</script>
+
+{% endblock %}

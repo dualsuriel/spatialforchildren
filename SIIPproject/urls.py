@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from SIIPproject.views import IntroView, GradebookView, TestView, LogView, ThankuView, SurveyView, Survey2View,Survey3View, Survey4View, TestsummaryView, Announcements
+from SIIPproject.views import IntroView, GradebookView, TestView, LogView, ThankuView, SurveyView, Survey2View,Survey3View, Survey4View, Survey5View, TestsummaryView, Announcements
 
 urlpatterns = (
 	url(r'^$', 'SIIPproject.views.index', name='redirect'),
@@ -13,7 +13,8 @@ urlpatterns = (
 	url(r'^survey/$', SurveyView.as_view(), name='survey'),
 	url(r'^survey2/$', Survey2View.as_view(), name='survey2'),
 	url(r'^survey3/$', Survey3View.as_view(), name='survey3'),
-	url(r'^survey4/$', Survey4View.as_view(), name='survey3'),
+	url(r'^survey4/$', Survey4View.as_view(), name='survey4'),
+	url(r'^survey5/$', Survey5View.as_view(), name='survey5'),
 	url(r'^testsummary/$', TestsummaryView.as_view(), name='testsummary'),
 	url(r'^test/$', TestView.as_view(), name='test'),
 	url(r'^log/', LogView.as_view(), name='log'),
